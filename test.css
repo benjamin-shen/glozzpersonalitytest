@@ -5,11 +5,8 @@
 .question { /* the list element */
     margin: 10px 2px 0px 2px;
 }
-.choice { /* the four answer choices */
-    margin: 0px 2px 8px 2px;
-}
 .btn {
-    width: 15%;
+    width: 23%;
     border: solid black 1px;
     outline: black;
     margin: 8px 1px 6px 1px;
@@ -20,7 +17,7 @@
     white-space: wrap;
     text-overflow: ellipsis;
 }
-.btn:hover {
+.btn:hover, .btn.selected {
     background-color: lightgray;
     color: black;
 }
