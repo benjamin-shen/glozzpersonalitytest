@@ -64,7 +64,7 @@ function createPrompts() {
         prompt_li.appendChild(prompt_textnode);
         // answer choices
         var question = document.createElement('div');
-        var question_id = 'number'+i;
+        var question_id = 'question'+i;
         question.setAttribute('id',question_id);
         questions.push({id:question_id, answered:0});
         for (var j=0; j<prompts[i].choices.length; j++) {
@@ -83,8 +83,13 @@ function createPrompts() {
     }
 }
 
-function adjustPersonality(questionNumber,) {
+function adjustPersonality(questionNumber,choice,select) {
+    if (select) { // move to new spot
 
+    }
+    else { // move back
+
+    }
 }
 
 window.onload = function() {
@@ -94,22 +99,29 @@ window.onload = function() {
 
     $('.btn').mousedown (function() {
         var id = $(this).closest('div').prop('id');
+        var question_index = questions.findIndex(x => x.id===id);
         if($(this).hasClass('selected')) { // unselect option
             $(this).removeClass('selected');
-            questions.find(x => x.id===id).answered=0;
+            questions[question_index].answered=0;
             n--;
+            adjustPersonality(question_index,$(this).attr('name'),false)
         }
         else {
-            if (questions.find(x => x.id===id).answered==1) { // if answered
+            if (questions[question_index].answered==1) { // if answered
                 // unselect options
                 var buttons = document.getElementById(id).getElementsByTagName('button');
                 for (i=0; i<buttons.length; i++) {
-                    buttons[i].classList.remove('selected');
+                    if($(this).hasClass('selected')) {
+                        buttons[i].classList.remove('selected');
+                        adjustPersonality(question_index,i,false)
+                    }
                 }
             }
-            else { // mark answered
-                questions.find(x => x.id===id).answered=1;
+            else { // if not answered
+                // mark answered
+                questions[question_index].answered=1;
                 n++;
+                adjustPersonality(question_index,$(this).attr('name'),true)
             }
             // select option
             $(this).addClass('selected');
