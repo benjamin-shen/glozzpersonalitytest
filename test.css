@@ -23,7 +23,14 @@
     white-space: wrap;
     text-overflow: ellipsis;
 }
-.btn:hover, .btn.selected {
+.btn:hover {
     background-color: lightgray;
     color: black;
+}
+.btn.selected {
+    background-color: #696969; /* nice */
+    color: white;
+}
+.invisible {
+    visibility: hidden;
 }

@@ -1,6 +1,6 @@
 * {
     font-family: Verdana, sans-serif;
-    color: white;
+    color: whitesmoke;
     margin: 0px;
     padding: 0px;
 }
@@ -8,7 +8,7 @@ html {
     background-color: gray;
 }
 a {
-   text-decoration: none; 
+   text-decoration: none;
 }
 a:hover {
     color: lightgray;

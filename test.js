@@ -38,7 +38,7 @@ var prompts = [
 
 var x = 0.0;
 var y = 0.0;
-// var n = prompts.length;
+var n = 0;
 var questions = [];
 
 function shuffle(array) { //https://bost.ocks.org/mike/shuffle/
@@ -83,23 +83,59 @@ function createPrompts() {
     }
 }
 
-window.onload = function(){
+function adjustPersonality(questionNumber,) {
+
+}
+
+window.onload = function() {
     createPrompts();
-    
+    var submit = document.getElementById('submit');
+    submit.className = 'invisible';
+
     $('.btn').mousedown (function() {
         var id = $(this).closest('div').prop('id');
-        if($(this).hasClass('selected')) { // unselect
+        if($(this).hasClass('selected')) { // unselect option
             $(this).removeClass('selected');
             questions.find(x => x.id===id).answered=0;
+            n--;
         }
-        else { // unselect options
-            var buttons = document.getElementById(id).getElementsByTagName('button');
-            for (i=0; i<buttons.length; i++) {
-                buttons[i].classList.remove('selected');
+        else {
+            if (questions.find(x => x.id===id).answered==1) { // if answered
+                // unselect options
+                var buttons = document.getElementById(id).getElementsByTagName('button');
+                for (i=0; i<buttons.length; i++) {
+                    buttons[i].classList.remove('selected');
+                }
             }
-            // select
+            else { // mark answered
+                questions.find(x => x.id===id).answered=1;
+                n++;
+            }
+            // select option
             $(this).addClass('selected');
-            questions.find(x => x.id===id).answered=1;
         }
     })
+
+    $("submit").click(function() {
+        var x_input = document.createElement('input');
+        x_input.setAttribute('type','hidden');
+        x_input.setAttribute('name','x');
+        x_input.setAttribute('value',x);
+        document.getElementById('submit').appendChild(x_input);
+        var y_input = document.createElement('input');
+        y_input.setAttribute('type','hidden');
+        y_input.setAttribute('name','y');
+        y_input.setAttribute('value',y);
+        document.getElementById('submit').appendChild(y_input);
+    })
 }
+
+// disable submit button until questions are answered
+window.setInterval(function() {
+    if (n<prompts.length) {
+        submit.classList.add('invisible');
+    }
+    else {
+        submit.classList.remove('invisible');
+    }
+}, 100)
