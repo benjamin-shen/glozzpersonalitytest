@@ -12,9 +12,9 @@ var prompts = [
     shift: [[0,0],[0,0],[0,0],[0,0]],
 },
 {
-    prompt: "You are in rehearsal and you think we are singing off key. You",
+    prompt: "We are in rehearsal singing off key. You",
     weight: 0.1,
-    choices: ["do nothing.","doubt yourself.","tell a neighbor.","correct Robert."],
+    choices: ["don't notice.","doubt yourself.","tell a neighbor.","correct Robert."],
     shift: [[0,0],[0,0],[0,0],[0,0]],
 },
 {

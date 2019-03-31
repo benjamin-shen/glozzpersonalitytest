@@ -1,7 +1,13 @@
 #prompts {
     list-style: none;
 }
-#submit {}
+#submit {
+    margin-top: 10px;
+}
+#submit input {
+    padding: 5px 10px;
+    color: black;
+}
 .question { /* the list element */
     margin: 10px 2px 0px 2px;
 }
