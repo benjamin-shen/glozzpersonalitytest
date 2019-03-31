@@ -116,17 +116,15 @@ window.onload = function() {
         }
     })
 
-    $("submit").click(function() {
-        var x_input = document.createElement('input');
-        x_input.setAttribute('type','hidden');
-        x_input.setAttribute('name','x');
-        x_input.setAttribute('value',x);
-        document.getElementById('submit').appendChild(x_input);
-        var y_input = document.createElement('input');
-        y_input.setAttribute('type','hidden');
-        y_input.setAttribute('name','y');
-        y_input.setAttribute('value',y);
-        document.getElementById('submit').appendChild(y_input);
+    $("#submit").click(function() {
+        $('<input type="hidden">').attr({
+            name: 'x',
+            value: x,
+        }).appendTo('#submit');
+        $('<input type="hidden">').attr({
+            name: 'y',
+            value: y,
+        }).appendTo($('#submit'));
     })
 }
 
