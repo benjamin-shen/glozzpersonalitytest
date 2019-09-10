@@ -16,36 +16,34 @@ a:hover {
 #container {
     display: block;
     text-align: center;
-    padding-top: 60px;
+    padding-top: 40px;
 }
 #nav {
     background-color: black;
-    height: 40px;
-    padding: 10px 0px;
     position: fixed;
+    height: 30px;
     top: 0;
     width: 100%;
     overflow: hidden;
 }
 #nav a {
-    font-size: 30px;
+    margin: 10px 15px;
     font-weight: bold;
 }
 #nav a:active {
     font-style: italic;
 }
 #header h1 {
-    font-size: 20px;
-    text-shadow: 0 0 5px black;
-    margin: 10px 2px 8px 2px;
+    font-size: 1em;
+    margin: 6px 0px;
 }
 #home {
-    margin: 0px 15px;
+    font-size: 1.5em;
     position: absolute;
     float: left;
 }
 #info {
-    margin: 0px 15px;
+    font-size: 1.5em;
     position: absolute;
     right: 0;
 }
