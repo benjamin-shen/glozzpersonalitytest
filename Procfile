@@ -1,1 +1,1 @@
-web: gunicorn glozzpersonalitytest:app --log-file=-
+web: gunicorn personalitytest:app --log-file=-
