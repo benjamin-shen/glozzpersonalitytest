@@ -15,9 +15,13 @@ def results():
 def info():
     return render_template('info.html')
 
-@app.route('/sorry')
-def sorry():
-    return render_template('sorry.html')
+@app.errorhandler(404)
+def error404(e):
+    return render_template('error.html'), 404
+
+@app.errorhandler(405)
+def error405(e):
+    return render_template('error.html'), 405
 
 if __name__ == '__main__':
    app.run(debug = True)

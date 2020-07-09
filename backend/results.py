@@ -1,4 +1,7 @@
 from flask import request, render_template
+import math
+import json
+import urllib
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -24,9 +27,31 @@ def extract():
 def result():
     try:
         master = extract()
-        data = request.form
 
-        html = render_template('results.html')
+        data = json.loads(urllib.parse.unquote(request.form.get("data")))
+        dataList = [None] * 10
+        for i in range(0,10):
+            dataList[i] = int(data.get(str(i)))
+
+        mostSimilar = "nobody"
+        leastDistance = None
+        for member in master:
+            answers = member.get("answers")
+            sumSquares = 0
+            for i in range(0,10):
+                memberChoice = answers[i]
+                clientChoice = dataList[i]
+                sumSquares += math.pow(clientChoice - memberChoice, 2)
+            vectorDistance = math.sqrt(sumSquares)
+            try:
+                if vectorDistance < leastDistance:
+                    leastDistance = vectorDistance
+                    mostSimilar = member.get("name")
+            except:
+                leastDistance = vectorDistance
+                mostSimilar = member.get("name")
+
+        html = render_template('results.html', name=mostSimilar)
     except:
-        html = render_template('sorry.html')
+        html = render_template('error.html')
     return html

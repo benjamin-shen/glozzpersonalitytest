@@ -1,0 +1,7 @@
+#content {
+  display: table; /* wrap text */
+  width: auto;
+  margin: 20px auto;
+  padding: 10px 15px;
+  line-height: 24px;
+}

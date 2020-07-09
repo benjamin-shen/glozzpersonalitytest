@@ -1,52 +1,49 @@
 * {
-    font-family: Verdana, sans-serif;
-    color: whitesmoke;
-    margin: 0px;
-    padding: 0px;
+  font-family: Verdana, sans-serif;
+  color: whitesmoke;
+  margin: 0px;
+  padding: 0px;
 }
 html {
-    background-color: gray;
+  background-color: #07575b;
 }
 a {
-   text-decoration: none;
+  text-decoration: none;
 }
 a:hover {
-    color: lightgray;
+  color: #00d7fd;
 }
 #container {
-    display: block;
-    text-align: center;
-    padding-top: 40px;
+  display: block;
+  text-align: center;
+  margin-top: 70px;
 }
 #nav {
-    background-color: black;
-    position: fixed;
-    height: 30px;
-    top: 0;
-    width: 100%;
-    overflow: hidden;
+  background-color: #003b46;
+  position: fixed;
+  height: 55px;
+  top: 0;
+  width: 100%;
+  overflow: hidden;
+  padding: 10px 0px;
 }
 #nav a {
-    margin: 10px 15px;
-    font-weight: bold;
+  margin: 10px 15px;
+  font-weight: bold;
 }
 #nav a:active {
-    font-style: italic;
-}
-#header h1 {
-    font-size: 1em;
-    margin: 6px 0px;
+  font-style: italic;
 }
 #home {
-    font-size: 1.5em;
-    position: absolute;
-    float: left;
+  font-size: 1.5em;
+  position: absolute;
+  float: left;
 }
 #info {
-    font-size: 1.5em;
-    position: absolute;
-    right: 0;
+  font-size: 1.5em;
+  position: absolute;
+  right: 0;
 }
 .invisible {
-    display: none;
+  display: none;
 }

@@ -3,6 +3,14 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Glozz Personality Test Results</title>
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
     <link
       rel="stylesheet"
       type="text/css"
@@ -19,12 +27,12 @@
       <div id="nav">
         <div id="home"><a href="test">Back</a></div>
         <div id="info"><a href="info">Info</a></div>
-        <div id="header">
-          <a href="#"><h1>Results</h1></a>
-        </div>
       </div>
       <div id="content">
-        <div id="result"></div>
+        <div id="result">
+          You are most similar to<br />
+          <h3>{{ name }}!</h3>
+        </div>
       </div>
     </div>
   </body>

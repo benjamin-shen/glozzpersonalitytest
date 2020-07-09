@@ -1,15 +1,7 @@
 #content {
-    display: table; /* wrap text */
-    width: auto;
-    margin: 20px auto;
-    padding: 10px 15px;
-    background-color: darkgray;
-}
-#content p {
-    color: black;
-    line-height: 24px;
-}
-#content a {
-    color: #420420; /* nice */
-    line-height: 24px;
+  display: table; /* wrap text */
+  width: auto;
+  margin: 20px auto;
+  padding: 10px 15px;
+  line-height: 24px;
 }

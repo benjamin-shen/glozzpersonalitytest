@@ -1,36 +1,30 @@
 #prompts {
-    list-style: none;
+  list-style: none;
 }
 #submit {
-    margin: 15px 0px 10px 0px;
-    padding: 10px 15px;
-    color: black;
-    outline: black;
-    border: 1px white;
-    border-radius: 4px;
+  margin: 15px 0px 10px 0px;
+  padding: 10px 15px;
+  background-color: #c4dfe6;
+  color: black;
+  outline: black;
+  border: 1px black;
+  border-radius: 6px;
 }
-.question { /* list item */
-    margin: 10px 2px 0px 2px;
-    font-size: 0.9em;
+#submit:hover {
+  background-color: #66a5ad;
+  color: white;
+}
+.question {
+  margin: 10px 2px 0px 2px;
 }
 .btn {
-    width: 24%;
-    border: solid black 1px;
-    outline: black;
-    margin: 8px 6px 6px 6px;
-    padding: 10px 6px;
-    display: inline-block;
-    background-color: darkgray;
-    overflow: hidden;
-    white-space: wrap;
-    text-overflow: ellipsis;
-    font-size: 0.8em;
+  margin: 4px;
 }
 .btn:hover {
-    background-color: lightgray;
-    color: black;
+  background-color: #66a5ad;
+  color: white;
 }
 .btn.selected {
-    background-color: #696969; /* nice */
-    color: white;
+  background-color: #c4dfe6;
+  color: black;
 }

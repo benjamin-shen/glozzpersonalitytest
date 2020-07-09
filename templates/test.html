@@ -1,28 +1,55 @@
 <html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>GLOZZ Personality Test</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='layout.css') }}">
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='test.css') }}">
+    <!-- Compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+    />
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <!-- Material icons -->
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='layout.css') }}"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="{{ url_for('static', filename='test.css') }}"
+    />
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-    <script type="text/javascript" src="{{ url_for('static', filename='test.js') }}"></script>
-</head>
-<body>
+    <script
+      type="text/javascript"
+      src="{{ url_for('static', filename='test.js') }}"
+    ></script>
+  </head>
+  <body>
     <div id="container">
-        <div id="nav">
-            <div id="home"><a href="sorry">Home</a></div>
-            <div id="info"><a href="info">Info</a></div>
-            <div id="header">
-                <a href="test"><h1>Personality Test</h1></a>
-            </div>
-        </div>
-        <div id="content">
-            <form name="test" action="results" method="post">
-                <div><ul id="prompts"></ul></div>
-                <input id="submit" type="submit" value="See My Results"></input>
-            </form>
-        </div>
+      <div id="nav">
+        <div id="home"><a href="test">Personality Test</a></div>
+        <div id="info"><a href="info">Info</a></div>
+      </div>
+      <div id="content">
+        <form name="test" action="results" method="post">
+          <div><ul id="prompts"></ul></div>
+          <input id="data" type="hidden" name="data" value="" />
+          <div class="row">
+            <button class="btn" id="submit" type="submit" name="submit">
+              See My Results
+              <i class="material-icons right"></i>
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-</body>
+  </body>
 </html>
