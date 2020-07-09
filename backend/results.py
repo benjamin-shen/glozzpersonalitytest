@@ -1,3 +1,4 @@
+import os
 from flask import request, render_template
 import math
 import json
@@ -7,7 +8,13 @@ import gspread
 from oauth2client.service_account import ServiceAccountCredentials
 
 scope = ['https://spreadsheets.google.com/feeds', 'https://www.googleapis.com/auth/drive']
-creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json',scope)
+try:
+    creds = ServiceAccountCredentials.from_json_keyfile_name('client_secret.json',scope)
+except:
+    json_creds = os.getenv("CLIENT_SECRET_JSON")
+    creds_dict = json.loads(json_creds)
+    creds_dict["private_key"] = creds_dict["private_key"].replace("\\\\n", "\n")
+    creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, scope)
 client = gspread.authorize(creds)
 
 def extract():
