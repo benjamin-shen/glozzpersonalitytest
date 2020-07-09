@@ -31,7 +31,11 @@
       <div id="content">
         <div id="result">
           You are most similar to<br />
-          <h3>{{ name }}!</h3>
+          <h3>{{ names[0].upper() }}!</h3>
+          Runner-ups:
+          <h5>{{ names[1] }}</h5>
+          <h5>{{ names[2] }}</h5>
+          <h5>{{ names[3] }}</h5>
         </div>
       </div>
     </div>

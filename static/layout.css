@@ -7,6 +7,9 @@
 html {
   background-color: #07575b;
 }
+h3 {
+  margin-bottom: 40px;
+}
 p {
   font-size: 1em;
 }
@@ -60,6 +63,9 @@ a:hover {
 }
 .btn-large {
   margin: 20px;
+}
+.center {
+  list-style-position: outside;
 }
 .invisible {
   display: none;

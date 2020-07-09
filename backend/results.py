@@ -1,8 +1,11 @@
 import os
-from flask import request, render_template
 import math
+from heapq import nsmallest
+
+from flask import request, render_template
 import json
 import urllib
+
 
 import gspread
 from oauth2client.service_account import ServiceAccountCredentials
@@ -35,32 +38,26 @@ def result():
     try:
         master = extract()
 
-        data = json.loads(urllib.parse.unquote(request.form.get("data")))
+        data = json.loads(urllib.parse.unquote(request.form["data"]))
         dataList = [None] * 10
         for i in range(0,10):
             dataList[i] = int(data.get(str(i)))
-        print(dataList)
 
-        mostSimilar = "nobody"
-        leastDistance = None
+        memberSimilarity = {}
         for member in master:
-            answers = member.get("answers")
-            print(answers)
+            name = member["name"]
+            answers = member["answers"]
             sumSquares = 0
             for i in range(0,10):
                 memberChoice = answers[i]
                 clientChoice = dataList[i]
                 sumSquares += math.pow(clientChoice - memberChoice, 2)
-            vectorDistance = math.sqrt(sumSquares)
-            try:
-                if vectorDistance < leastDistance:
-                    leastDistance = vectorDistance
-                    mostSimilar = member.get("name")
-            except:
-                leastDistance = vectorDistance
-                mostSimilar = member.get("name")
 
-        html = render_template('results.html', name=mostSimilar)
+            vectorDistance = math.sqrt(sumSquares)
+            memberSimilarity[name] = vectorDistance
+
+        mostSimilar = nsmallest(4, memberSimilarity, key = memberSimilarity.get)
+        html = render_template('results.html', names=mostSimilar)
     except:
         html = render_template('error.html')
     return html
