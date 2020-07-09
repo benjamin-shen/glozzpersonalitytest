@@ -7,6 +7,9 @@
 html {
   background-color: #07575b;
 }
+p {
+  font-size: 1em;
+}
 a {
   text-decoration: none;
 }
@@ -25,24 +28,38 @@ a:hover {
   top: 0;
   width: 100%;
   overflow: hidden;
-  padding: 10px 0px;
-}
-#nav a {
-  margin: 10px 15px;
   font-weight: bold;
 }
 #nav a:active {
   font-style: italic;
 }
 #home {
+  margin: 10px 15px;
   font-size: 1.5em;
   position: absolute;
   float: left;
 }
 #info {
+  margin: 10px 15px;
   font-size: 1.5em;
   position: absolute;
   right: 0;
+}
+#title {
+  margin: 10px auto;
+  font-size: 1.5em;
+  display: inline-block;
+}
+#content {
+  display: table; /* wrap text */
+  vertical-align: middle;
+  width: auto;
+  margin: 10px auto;
+  padding: 10px 15px;
+  line-height: 24px;
+}
+.btn-large {
+  margin: 20px;
 }
 .invisible {
   display: none;

@@ -39,11 +39,13 @@ def result():
         dataList = [None] * 10
         for i in range(0,10):
             dataList[i] = int(data.get(str(i)))
+        print(dataList)
 
         mostSimilar = "nobody"
         leastDistance = None
         for member in master:
             answers = member.get("answers")
+            print(answers)
             sumSquares = 0
             for i in range(0,10):
                 memberChoice = answers[i]
