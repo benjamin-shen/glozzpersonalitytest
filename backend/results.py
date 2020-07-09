@@ -35,29 +35,29 @@ def extract():
     return master
 
 def result():
-    try:
-        master = extract()
+    #try:
+    master = extract()
 
-        data = json.loads(urllib.parse.unquote(request.form["data"]))
-        dataList = [None] * 10
+    data = json.loads(urllib.parse.unquote(request.form["data"]))
+    dataList = [None] * 10
+    for i in range(0,10):
+        dataList[i] = int(data.get(str(i)))
+
+    memberSimilarity = {}
+    for member in master:
+        name = member["name"]
+        answers = member["answers"]
+        sumSquares = 0
         for i in range(0,10):
-            dataList[i] = int(data.get(str(i)))
+            memberChoice = answers[i]
+            clientChoice = dataList[i]
+            sumSquares += math.pow(clientChoice - memberChoice, 2)
 
-        memberSimilarity = {}
-        for member in master:
-            name = member["name"]
-            answers = member["answers"]
-            sumSquares = 0
-            for i in range(0,10):
-                memberChoice = answers[i]
-                clientChoice = dataList[i]
-                sumSquares += math.pow(clientChoice - memberChoice, 2)
+        vectorDistance = math.sqrt(sumSquares)
+        memberSimilarity[name] = vectorDistance
 
-            vectorDistance = math.sqrt(sumSquares)
-            memberSimilarity[name] = vectorDistance
-
-        mostSimilar = nsmallest(4, memberSimilarity, key = memberSimilarity.get)
-        html = render_template('results.html', names=mostSimilar)
-    except:
-        html = render_template('error.html')
+    mostSimilar = nsmallest(4, memberSimilarity, key = memberSimilarity.get)
+    html = render_template('results.html', names=mostSimilar)
+    #except:
+    #    html = render_template('error.html')
     return html
