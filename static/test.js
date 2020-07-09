@@ -52,7 +52,7 @@ var prompts = [
 
 var x = 0.0;
 var y = 0.0;
-var n = 9;
+var n = 0;
 var responses = [];
 
 function shuffle(array) { //https://bost.ocks.org/mike/shuffle/

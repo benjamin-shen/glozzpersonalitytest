@@ -11,7 +11,7 @@ def extract():
     sheet = client.open('Personality Test').sheet1
     records = sheet.get_all_records() # list of dictionaries
     master = []
-    # [{'name':'Benjamin','answers':[1,2,3,4,3,2,1,2,3,4]},etc]
+    # [{'name':'Benjamin','answers':[1,2,3,4,3,2,1,2,3,4]},...]
     for row in records:
         response = [None] * 10
         for key in row:
@@ -19,12 +19,14 @@ def extract():
                 response[int(key) - 1] = int(row[key])
         member = {'name' : str(row['Name']), 'answers': response}
         master.append(member)
+    return master
 
 def result():
-    extract()
-    data = request.form
+    try:
+        master = extract()
+        data = request.form
 
-    html = render_template('results.html')
-
-
+        html = render_template('results.html')
+    except:
+        html = render_template('sorry.html')
     return html

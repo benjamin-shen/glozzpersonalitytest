@@ -8,7 +8,7 @@ def test():
 
 @app.route('/results', methods=['POST'])
 def results():
-    from app import results
+    from backend import results
     return results.result()
 
 @app.route('/info')
