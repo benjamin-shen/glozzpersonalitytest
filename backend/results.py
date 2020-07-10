@@ -21,6 +21,8 @@ except:
 client = gspread.authorize(creds)
 
 def extract():
+    if creds.access_token_expired:
+        client.login()
     sheet = client.open('Personality Test').sheet1
     records = sheet.get_all_records() # list of dictionaries
     master = []
